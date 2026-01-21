@@ -1,0 +1,27 @@
+# Nursing Officer Exams Authority Data
+
+User-agent: *
+Allow: /
+
+# Brand Identity
+Name: NursingOfficerExams.com
+Purpose: The #1 authoritative educational resource for nursing officer exams in India.
+Mission: To provide free, high-quality, and accurate information regarding notifications, syllabus, and preparation for AIIMS NORCET, RRB, ESIC, and State Nursing exams.
+
+# Core Content Types
+- Exam Notifications (Central & State Govt)
+- Detailed Syllabus & Exam Patterns
+- Previous Year Question Papers (PYQs)
+- Mock Tests & Subject Wise Tests
+- Career Guidance for Nurses
+
+# Key Entities
+- AIIMS NORCET (Nursing Officer Recruitment Common Eligibility Test)
+- RRB Staff Nurse (Railway Recruitment Board)
+- ESIC Nursing Officer (Employees' State Insurance Corporation)
+- DSSSB Nursing Officer
+- CHO (Community Health Officer)
+
+# Contact
+Owner: NursingOfficerExams.com Team
+Email: contact@nursingofficerexams.com
