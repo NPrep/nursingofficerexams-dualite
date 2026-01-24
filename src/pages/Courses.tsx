@@ -116,9 +116,14 @@ export const CoursesPage = () => {
                 </div>
 
                 <div className="pt-4 border-t border-gray-100">
-                  <button className={cn("w-full text-white px-4 py-3 rounded-lg font-bold text-sm transition-colors shadow-sm hover:shadow-md uppercase tracking-wide", styles.button)}>
+                  <a 
+                    href={course.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={cn("block w-full text-center text-white px-4 py-3 rounded-lg font-bold text-sm transition-colors shadow-sm hover:shadow-md uppercase tracking-wide", styles.button)}
+                  >
                     Enroll Now
-                  </button>
+                  </a>
                 </div>
               </div>
             </Card>

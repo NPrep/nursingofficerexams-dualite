@@ -365,7 +365,7 @@ export const blogs = [
     category: 'Preparation Strategy',
     excerpt: 'A step-by-step guide to cracking the toughest nursing exam in India. Covers booklist, timetable, and revision tips.',
     date: 'Oct 15, 2024',
-    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/e0f2fe/0284c7?text=NORCET+Strategy'
+    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/e0f2fe/0284c7?text=NORCET+Strategy'
   },
   {
     id: 'central-vs-state-nursing',
@@ -373,7 +373,7 @@ export const blogs = [
     category: 'Career Guidance',
     excerpt: 'Detailed comparison of salary, promotion, and work-life balance between AIIMS, RRB, and State PSC nursing jobs.',
     date: 'Oct 10, 2024',
-    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/f0fdf4/166534?text=Salary+Comparison'
+    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/f0fdf4/166534?text=Salary+Comparison'
   },
   {
     id: 'syllabus-breakdown',
@@ -381,7 +381,7 @@ export const blogs = [
     category: 'Syllabus',
     excerpt: 'Understanding the core subjects you need to focus on for 80% of nursing competitive exams.',
     date: 'Sep 28, 2024',
-    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/fff7ed/c2410c?text=Syllabus+Guide'
+    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/fff7ed/c2410c?text=Syllabus+Guide'
   },
   {
     id: 'rrb-exam-pattern-2026',
@@ -389,7 +389,7 @@ export const blogs = [
     category: 'Exam Updates',
     excerpt: 'What to expect in the upcoming Railway Nursing exams. Analysis of previous trends and new recruitment rules.',
     date: 'Nov 01, 2024',
-    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/faf5ff/6b21a8?text=RRB+2026'
+    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/faf5ff/6b21a8?text=RRB+2026'
   },
   {
     id: 'cho-vs-nursing-officer',
@@ -397,7 +397,7 @@ export const blogs = [
     category: 'Career Guidance',
     excerpt: 'Comparing the role of a Community Health Officer (CHO) with a regular Nursing Officer in terms of stability and growth.',
     date: 'Nov 05, 2024',
-    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/eff6ff/1e40af?text=CHO+vs+NO'
+    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/eff6ff/1e40af?text=CHO+vs+NO'
   },
   {
     id: 'best-books-nursing',
@@ -405,7 +405,7 @@ export const blogs = [
     category: 'Resources',
     excerpt: 'The ultimate booklist recommended by toppers for Anatomy, MSN, and non-nursing subjects.',
     date: 'Nov 12, 2024',
-    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/fef2f2/991b1b?text=Best+Books'
+    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/fef2f2/991b1b?text=Best+Books'
   }
 ];
 
@@ -531,7 +531,7 @@ export const courses = [
     ],
     // Removed image, added theme color
     theme: 'blue',
-    link: '#'
+    link: 'https://qtestseries.nprep.in'
   },
   {
     id: 'rapid-revision',
@@ -547,7 +547,7 @@ export const courses = [
     ],
     // Removed image, added theme color
     theme: 'green',
-    link: '#'
+    link: 'https://rapid.nprep.in'
   },
   {
     id: 'gold-batch',
@@ -564,6 +564,6 @@ export const courses = [
     ],
     // Removed image, added theme color
     theme: 'orange',
-    link: '#'
+    link: 'https://gold.nprep.in'
   }
 ];
