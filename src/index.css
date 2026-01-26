@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  /* Custom Blog Callouts */
+  .blog-callout-summary {
+    @apply bg-blue-50 border-l-4 border-blue-500 p-6 my-8 rounded-r-lg;
+  }
+  
+  .blog-callout-mistake {
+    @apply bg-red-50 border-l-4 border-red-500 p-6 my-8 rounded-r-lg;
+  }
+
+  .blog-callout-title {
+    @apply font-bold text-lg mb-2 block;
+  }
+
+  /* Custom Table Styling for Blog Content */
+  .blog-content table {
+    @apply min-w-full divide-y divide-gray-200 border border-gray-200 my-8;
+  }
+  
+  .blog-content thead {
+    @apply bg-gray-50;
+  }
+  
+  .blog-content th {
+    @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-b border-gray-200;
+  }
+  
+  .blog-content td {
+    @apply px-6 py-4 whitespace-pre-wrap text-sm text-gray-700 border-b border-gray-100;
+  }
+
+  .blog-content tr:nth-child(even) {
+    @apply bg-gray-50/50;
+  }
+}

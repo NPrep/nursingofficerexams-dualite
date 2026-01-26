@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import ExamDetail from './pages/ExamDetail';
 import { PYQPage, MockTestPage, SubjectTestsPage } from './pages/Resources';
 import { BlogList } from './pages/Blog';
+import { BlogDetail } from './pages/BlogDetail'; // Imported
 import { CoursesPage } from './pages/Courses';
 import { ExamsList } from './pages/ExamsList';
 import About from './pages/About';
@@ -32,6 +33,7 @@ function App() {
           
           {/* Blog */}
           <Route path="/blog" element={<BlogList />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} /> {/* New Route */}
 
           {/* Trust & Legal Pages */}
           <Route path="/about" element={<About />} />

@@ -33,22 +33,21 @@ export const BlogList = () => {
                  </div>
               </div>
 
-              {/* Content Section - Removed Excerpt as requested */}
+              {/* Content Section */}
               <div className="p-5 flex flex-col flex-grow">
                 <div className="flex items-center gap-2 mb-2 text-xs text-gray-500 font-medium uppercase tracking-wide">
                   <span>{blog.date}</span>
                 </div>
                 
-                <Link to="#" className="block">
+                {/* Updated Link to use ID as slug */}
+                <Link to={`/blog/${blog.id}`} className="block">
                   <h2 className="text-lg font-bold text-gray-900 leading-snug hover:text-brand-600 line-clamp-2">
                     {blog.title}
                   </h2>
                 </Link>
                 
-                {/* Excerpt removed */}
-                
                 <div className="mt-4 pt-4 border-t border-gray-100 mt-auto">
-                  <Link to="#" className="text-brand-600 text-sm font-semibold hover:underline inline-flex items-center">
+                  <Link to={`/blog/${blog.id}`} className="text-brand-600 text-sm font-semibold hover:underline inline-flex items-center">
                     Read Article &rarr;
                   </Link>
                 </div>

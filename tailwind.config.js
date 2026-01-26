@@ -24,8 +24,37 @@ module.exports = {
       },
       fontFamily: {
         sans: ['Inter', ...defaultTheme.fontFamily.sans],
-      }
+      },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.gray.700'),
+            h2: {
+              color: theme('colors.gray.900'),
+              fontWeight: '700',
+              marginTop: '2em',
+              marginBottom: '1em',
+            },
+            h3: {
+              color: theme('colors.gray.800'),
+              fontWeight: '600',
+              marginTop: '1.5em',
+            },
+            'ul > li::marker': {
+              color: theme('colors.brand.500'),
+            },
+            a: {
+              color: theme('colors.brand.600'),
+              '&:hover': {
+                color: theme('colors.brand.800'),
+              },
+            },
+          },
+        },
+      }),
     }
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };
