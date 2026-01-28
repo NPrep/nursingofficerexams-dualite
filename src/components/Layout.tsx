@@ -82,9 +82,9 @@ export const Header = () => {
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 pt-12 pb-6">
+    <footer className="bg-gray-900 text-gray-300 pt-12 pb-8">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div className="col-span-1 md:col-span-1">
             <h3 className="text-white font-bold text-lg mb-4">NursingOfficerExams</h3>
             <p className="text-sm text-gray-400 leading-relaxed">
@@ -124,8 +124,33 @@ export const Footer = () => {
           </div>
         </div>
         
-        <div className="border-t border-gray-800 pt-6 text-center text-xs text-gray-500">
-          <p>&copy; {new Date().getFullYear()} NursingOfficerExams.com. All rights reserved. Not affiliated with any government body.</p>
+        {/* Bottom Bar with NPrep Association */}
+        <div className="border-t border-gray-800 pt-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            
+            {/* Copyright & Disclaimer */}
+            <div className="text-xs text-gray-500 text-center md:text-left order-2 md:order-1">
+              <p className="mb-1">&copy; {new Date().getFullYear()} NursingOfficerExams.com. All rights reserved.</p>
+              <p>Not affiliated with any government body.</p>
+            </div>
+
+            {/* NPrep Association Badge */}
+            <div className="flex flex-col items-center md:items-end order-1 md:order-2">
+              <span className="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-semibold">In Association With</span>
+              <a 
+                href="https://nprep.in" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="group flex items-center gap-2"
+                aria-label="Visit NPrep Website"
+              >
+                <span className="text-2xl font-bold text-white tracking-tight group-hover:text-brand-400 transition-colors">
+                  NPrep
+                </span>
+              </a>
+            </div>
+
+          </div>
         </div>
       </div>
     </footer>
