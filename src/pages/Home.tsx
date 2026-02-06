@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, FileText, CheckSquare, ArrowRight } from 'lucide-react';
-import { exams, blogs, resources } from '../data/mockData';
+import { BookOpen, FileText, CheckSquare, ArrowRight, Download, Laptop } from 'lucide-react';
+import { exams, blogs, resources, comprehensiveExams } from '../data/mockData';
 import { SectionTitle, Card, Badge } from '../components/UIComponents';
-import { SEOBlock } from '../components/SEOBlock';
+import { UpcomingExams } from '../components/UpcomingExams';
 import { SEO } from '../components/SEO';
 
 const Home = () => {
@@ -40,33 +40,56 @@ const Home = () => {
     }
   };
 
+  // Site Navigation Schema
+  const siteNavSchema = {
+    "@context": "https://schema.org",
+    "@type": "SiteNavigationElement",
+    "name": ["Exams", "PYQs", "Mock Tests", "Blog"],
+    "url": [
+      "https://nursingofficerexams.com/exams",
+      "https://nursingofficerexams.com/pyq",
+      "https://nursingofficerexams.com/mock-tests",
+      "https://nursingofficerexams.com/blog"
+    ]
+  };
+
+  // ItemList Schema for Exam Links
+  const itemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "itemListElement": comprehensiveExams.flatMap(cat => cat.exams).slice(0, 10).map((exam, index) => ({
+      "@type": "ListItem",
+      "position": index + 1,
+      "name": exam.name,
+      "url": exam.link
+    }))
+  };
+
   return (
     <div className="space-y-12 pb-0">
       <SEO 
         title="Nursing Officer Exams India - Notifications, Syllabus, PYQs & Free Resources"
         description="The #1 Authority for Nursing Officer Exams in India. Get latest notifications, syllabus, free PYQs, mock tests, and lectures for AIIMS NORCET, RRB, ESIC, and State Staff Nurse exams."
         canonical="/"
-        schema={{...orgSchema, ...websiteSchema}}
+        schema={{...orgSchema, ...websiteSchema, ...siteNavSchema, ...itemListSchema}}
         keywords={['Nursing Officer Exam', 'AIIMS NORCET', 'RRB Staff Nurse', 'Nursing PYQ', 'Staff Nurse Vacancy']}
       />
 
-      {/* Hero Section */}
-      <section className="bg-gradient-to-br from-brand-50 to-white py-16 border-b border-brand-100">
+      {/* Hero Section - Simplified Gateway */}
+      <section className="bg-gradient-to-br from-brand-50 to-white py-12 border-b border-brand-100">
         <div className="container mx-auto px-4 text-center max-w-4xl">
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Nursing Officer Exams in India <br />
-            <span className="text-brand-600 text-2xl md:text-4xl">Notifications, Syllabus, PYQs & Free Resources</span>
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            India's Largest Nursing Exam Gateway
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Your one-stop destination for AIIMS NORCET, RRB Staff Nurse, ESIC, and State Nursing Officer exam preparation. 
-            Access free mock tests, previous year papers, and expert strategy guides.
+            Direct access to official notifications, syllabus, and free study resources for AIIMS, RRB, and State Nursing exams.
           </p>
           
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/exams" className="bg-brand-600 text-white px-6 py-3 rounded-lg font-medium hover:bg-brand-700 transition-colors">
-              Explore All Exams
+            <Link to="/exams" className="bg-brand-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-brand-700 transition-colors shadow-sm">
+              Find Your Exam
             </Link>
-            <Link to="/pyq" className="bg-white text-brand-700 border border-brand-200 px-6 py-3 rounded-lg font-medium hover:bg-brand-50 transition-colors">
+            <Link to="/pyq" className="bg-white text-brand-700 border border-brand-200 px-8 py-3 rounded-lg font-bold hover:bg-brand-50 transition-colors shadow-sm">
               Download PYQs
             </Link>
           </div>
@@ -74,126 +97,151 @@ const Home = () => {
       </section>
 
       <div className="container mx-auto px-4">
-        {/* Quick Resource Blocks - Updated to 3 columns */}
+        {/* Quick Resource Blocks - Updated Names & Descriptions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 -mt-8 mb-16 relative z-10">
-          {[
-            { title: 'All Nursing Exams', icon: BookOpen, link: '/exams', color: 'bg-blue-50 text-blue-600' },
-            { title: 'Previous Papers', icon: FileText, link: '/pyq', color: 'bg-purple-50 text-purple-600' },
-            { title: 'Subject Tests', icon: CheckSquare, link: '/subject-tests', color: 'bg-orange-50 text-orange-600' },
-          ].map((item, idx) => (
-            <Link key={idx} to={item.link} className="block group">
-              <Card className="h-full flex flex-col items-center text-center p-6 border-t-4 border-t-transparent hover:border-t-brand-500 transition-all">
-                <div className={`p-3 rounded-full mb-4 ${item.color}`}>
-                  <item.icon size={28} />
-                </div>
-                <h3 className="font-semibold text-gray-900 group-hover:text-brand-600">{item.title}</h3>
-              </Card>
-            </Link>
-          ))}
+          <Link to="/exams" className="block group">
+            <Card className="h-full flex flex-col items-center text-center p-6 border-t-4 border-t-blue-500 hover:shadow-lg transition-all">
+              <div className="p-3 rounded-full mb-3 bg-blue-50 text-blue-600">
+                <BookOpen size={28} />
+              </div>
+              <h3 className="font-bold text-lg text-gray-900 group-hover:text-blue-600">All Nursing Exams</h3>
+              <p className="text-sm text-gray-500 mt-2">Official links & notifications for Central & State exams.</p>
+            </Card>
+          </Link>
+
+          <Link to="/pyq" className="block group">
+            <Card className="h-full flex flex-col items-center text-center p-6 border-t-4 border-t-purple-500 hover:shadow-lg transition-all">
+              <div className="p-3 rounded-full mb-3 bg-purple-50 text-purple-600">
+                <Download size={28} />
+              </div>
+              <h3 className="font-bold text-lg text-gray-900 group-hover:text-purple-600">PYQ Downloads</h3>
+              <p className="text-sm text-gray-500 mt-2">Previous year question papers for NORCET, RRB & CHO.</p>
+            </Card>
+          </Link>
+
+          <Link to="/subject-tests" className="block group">
+            <Card className="h-full flex flex-col items-center text-center p-6 border-t-4 border-t-orange-500 hover:shadow-lg transition-all">
+              <div className="p-3 rounded-full mb-3 bg-orange-50 text-orange-600">
+                <Laptop size={28} />
+              </div>
+              <h3 className="font-bold text-lg text-gray-900 group-hover:text-orange-600">Subject Tests</h3>
+              <p className="text-sm text-gray-500 mt-2">Topic-wise practice for Anatomy, MSN, and more.</p>
+            </Card>
+          </Link>
         </div>
 
-        {/* Central Exams */}
-        <section className="mb-16">
-          <SectionTitle>Central Govt Nursing Exams</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {centralExams.map(exam => (
-              <Link key={exam.id} to={`/exam/${exam.id}`} className="block group">
-                <Card className="h-full flex flex-col">
-                  <div className="flex justify-between items-start mb-4">
-                    <Badge type="brand">{exam.category}</Badge>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-brand-600">{exam.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{exam.description}</p>
-                  <div className="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center text-sm text-gray-500">
-                    <span>{exam.vacancies} Vacancies</span>
-                    <span className="flex items-center text-brand-600 font-medium">View Details <ArrowRight size={16} className="ml-1" /></span>
-                  </div>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </section>
+        {/* Upcoming Exams Table - Replaces Generic Text */}
+        <UpcomingExams />
 
-        {/* State Exams */}
+        {/* Exam Discovery Grid - Clickable Keywords */}
         <section className="mb-16">
-          <SectionTitle>State Govt Nursing Exams</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {stateExams.map(exam => (
-              <Link key={exam.id} to={`/exam/${exam.id}`} className="block group">
-                <Card className="h-full flex flex-col">
-                  <div className="flex justify-between items-start mb-4">
-                    <Badge type="warning">{exam.category}</Badge>
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-brand-600">{exam.title}</h3>
-                  <p className="text-gray-600 text-sm mb-4 line-clamp-2">{exam.description}</p>
-                  <div className="mt-auto pt-4 border-t border-gray-100 flex justify-between items-center text-sm text-gray-500">
-                    <span>{exam.vacancies} Vacancies</span>
-                    <span className="flex items-center text-brand-600 font-medium">View Details <ArrowRight size={16} className="ml-1" /></span>
-                  </div>
-                </Card>
-              </Link>
-            ))}
-          </div>
-        </section>
-
-        {/* Two Column Layout: Latest Resources & Blog */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-20">
-          <div className="lg:col-span-2">
-            <SectionTitle>Latest From Our Blog</SectionTitle>
-            <div className="space-y-6">
-              {blogs.slice(0, 3).map((blog, idx) => (
-                <Card key={idx} className="flex flex-col md:flex-row gap-6">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <Badge>{blog.category}</Badge>
-                      <span className="text-xs text-gray-500">{blog.date}</span>
+          <SectionTitle>Explore Exams by Category</SectionTitle>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Central Exams */}
+            <div>
+              <h3 className="font-bold text-xl text-gray-800 mb-4 flex items-center gap-2">
+                <span className="w-2 h-6 bg-brand-500 rounded-full"></span>
+                Central Govt Exams
+              </h3>
+              <div className="grid grid-cols-1 gap-3">
+                {centralExams.map(exam => (
+                  <Link key={exam.id} to={`/exam/${exam.id}`} className="group block bg-white border border-gray-200 rounded-lg p-4 hover:border-brand-300 hover:shadow-sm transition-all">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h4 className="font-bold text-gray-900 group-hover:text-brand-600">{exam.title}</h4>
+                        <p className="text-xs text-gray-500 mt-1">{exam.vacancies} Vacancies • {exam.salary}</p>
+                      </div>
+                      <ArrowRight size={16} className="text-gray-300 group-hover:text-brand-500" />
                     </div>
-                    <Link to={`/blog`} className="block">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 hover:text-brand-600">{blog.title}</h3>
-                    </Link>
-                    <p className="text-gray-600 mb-4">{blog.excerpt}</p>
-                    <Link to={`/blog`} className="text-brand-600 font-medium hover:underline inline-flex items-center">
-                      Read Article <ArrowRight size={14} className="ml-1" />
-                    </Link>
-                  </div>
-                </Card>
-              ))}
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* State Exams */}
+            <div>
+              <h3 className="font-bold text-xl text-gray-800 mb-4 flex items-center gap-2">
+                <span className="w-2 h-6 bg-orange-500 rounded-full"></span>
+                State Govt Exams
+              </h3>
+              <div className="grid grid-cols-1 gap-3">
+                {stateExams.map(exam => (
+                  <Link key={exam.id} to={`/exam/${exam.id}`} className="group block bg-white border border-gray-200 rounded-lg p-4 hover:border-orange-300 hover:shadow-sm transition-all">
+                    <div className="flex justify-between items-center">
+                      <div>
+                        <h4 className="font-bold text-gray-900 group-hover:text-orange-600">{exam.title}</h4>
+                        <p className="text-xs text-gray-500 mt-1">{exam.vacancies} Vacancies • {exam.category}</p>
+                      </div>
+                      <ArrowRight size={16} className="text-gray-300 group-hover:text-orange-500" />
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
+        </section>
 
-          <div>
-            <SectionTitle>Free Resources</SectionTitle>
-            <Card className="bg-brand-50 border-brand-100 mb-6">
-              <h3 className="font-bold text-lg mb-4 text-brand-900">Latest PYQs</h3>
-              <ul className="space-y-3">
-                {resources.pyqs.slice(0, 5).map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <FileText size={18} className="text-brand-500 mt-0.5 shrink-0" />
-                    <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-sm text-gray-700 hover:text-brand-700 hover:underline line-clamp-1">{item.title}</a>
-                  </li>
-                ))}
-              </ul>
-              <Link to="/pyq" className="block mt-4 text-center text-sm font-medium text-brand-700 hover:text-brand-800">View All PYQs &rarr;</Link>
-            </Card>
+        {/* Differentiated Resources Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-20">
+          {/* Mock Tests Card */}
+          <Card className="bg-gradient-to-br from-green-50 to-white border-green-100">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-green-100 p-2 rounded text-green-700"><CheckSquare size={24} /></div>
+              <h3 className="font-bold text-xl text-green-900">Full Length Mock Tests</h3>
+            </div>
+            <p className="text-sm text-gray-600 mb-6">Real exam interface simulations for NORCET, RRB, and ESIC. 100-200 Questions per test.</p>
+            <ul className="space-y-3 mb-6">
+              {resources.tests.slice(0, 3).map((item, idx) => (
+                <li key={idx} className="flex items-center justify-between bg-white p-3 rounded border border-green-100 shadow-sm">
+                  <span className="text-sm font-medium text-gray-800">{item.title}</span>
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-green-600 hover:underline">Start Test</a>
+                </li>
+              ))}
+            </ul>
+            <Link to="/mock-tests" className="block w-full py-2 text-center bg-green-600 text-white rounded font-bold text-sm hover:bg-green-700 transition-colors">
+              View All Mock Tests
+            </Link>
+          </Card>
 
-            <Card className="bg-green-50 border-green-100">
-              <h3 className="font-bold text-lg mb-4 text-green-900">Live Mock Tests</h3>
-              <ul className="space-y-3">
-                {resources.tests.slice(0, 3).map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-2">
-                    <div className="w-2 h-2 rounded-full bg-green-500 mt-2 shrink-0"></div>
-                    <Link to={item.link} className="text-sm text-gray-700 hover:text-green-700 hover:underline">{item.title}</Link>
-                  </li>
-                ))}
-              </ul>
-              <Link to="/mock-tests" className="block mt-4 text-center text-sm font-medium text-green-700 hover:text-green-800">Attempt Tests &rarr;</Link>
-            </Card>
-          </div>
+          {/* Subject Tests Card */}
+          <Card className="bg-gradient-to-br from-orange-50 to-white border-orange-100">
+            <div className="flex items-center gap-3 mb-4">
+              <div className="bg-orange-100 p-2 rounded text-orange-700"><Laptop size={24} /></div>
+              <h3 className="font-bold text-xl text-orange-900">Subject Wise Practice</h3>
+            </div>
+            <p className="text-sm text-gray-600 mb-6">Topic-specific mini tests for Anatomy, MSN, OBG, and Pediatrics. 50 Questions per test.</p>
+            <ul className="space-y-3 mb-6">
+              {resources.subjectTests.slice(0, 3).map((item, idx) => (
+                <li key={idx} className="flex items-center justify-between bg-white p-3 rounded border border-orange-100 shadow-sm">
+                  <span className="text-sm font-medium text-gray-800">{item.title}</span>
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="text-xs font-bold text-orange-600 hover:underline">Start Test</a>
+                </li>
+              ))}
+            </ul>
+            <Link to="/subject-tests" className="block w-full py-2 text-center bg-orange-600 text-white rounded font-bold text-sm hover:bg-orange-700 transition-colors">
+              View All Subject Tests
+            </Link>
+          </Card>
         </div>
+
+        {/* Quick Redirects (Bottom) */}
+        <section className="border-t border-gray-200 pt-12 pb-8">
+          <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-6">Quick Redirects</h3>
+          <div className="flex flex-wrap gap-3">
+            {comprehensiveExams.flatMap(c => c.exams).map((exam, idx) => (
+              <a 
+                key={idx} 
+                href={exam.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-xs font-medium text-gray-600 bg-gray-100 px-3 py-1.5 rounded-full hover:bg-brand-100 hover:text-brand-700 transition-colors"
+              >
+                {exam.name}
+              </a>
+            ))}
+          </div>
+        </section>
       </div>
-      
-      {/* SEO Authority Block: Comprehensive Exam List */}
-      <SEOBlock />
     </div>
   );
 };

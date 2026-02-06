@@ -125,6 +125,52 @@ export const exams: Exam[] = [
   }
 ];
 
+// New Data for Upcoming Exams Table
+export const upcomingExams = [
+  {
+    name: 'AIIMS NORCET 8',
+    body: 'AIIMS New Delhi',
+    date: 'April 12, 2025 (Tentative)',
+    link: 'https://www.aiimsexams.ac.in/',
+    status: 'Upcoming'
+  },
+  {
+    name: 'RRB Staff Nurse 2026',
+    body: 'Railway Recruitment Board',
+    date: 'Late 2026 (Expected)',
+    link: 'https://indianrailways.gov.in/',
+    status: 'Notification Soon'
+  },
+  {
+    name: 'ESIC Nursing Officer',
+    body: 'UPSC / ESIC',
+    date: 'July 2025 (Expected)',
+    link: 'https://www.esic.gov.in/',
+    status: 'Upcoming'
+  },
+  {
+    name: 'DSSSB Nursing Officer',
+    body: 'DSSSB Delhi',
+    date: 'Aug 2025',
+    link: 'https://dsssb.delhi.gov.in/',
+    status: 'Upcoming'
+  },
+  {
+    name: 'UPPSC Staff Nurse (Mains)',
+    body: 'UPPSC',
+    date: 'June 2025',
+    link: 'https://uppsc.up.nic.in/',
+    status: 'Scheduled'
+  },
+  {
+    name: 'JIPMER Nursing Officer',
+    body: 'JIPMER',
+    date: 'May 2025',
+    link: 'https://jipmer.edu.in/',
+    status: 'Upcoming'
+  }
+];
+
 // Comprehensive list for the Exams Page with detailed SEO descriptions
 export const comprehensiveExams = [
   {
@@ -365,7 +411,7 @@ export const blogs = [
     category: 'Preparation Strategy',
     excerpt: 'A step-by-step guide to cracking the toughest nursing exam in India. Covers booklist, timetable, and revision tips.',
     date: 'Oct 15, 2024',
-    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/e0f2fe/0284c7?text=NORCET+Strategy'
+    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/e0f2fe/0284c7?text=NORCET+Strategy'
   },
   {
     id: 'central-vs-state-nursing',
@@ -373,7 +419,7 @@ export const blogs = [
     category: 'Career Guidance',
     excerpt: 'Detailed comparison of salary, promotion, and work-life balance between AIIMS, RRB, and State PSC nursing jobs.',
     date: 'Oct 10, 2024',
-    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/f0fdf4/166534?text=Salary+Comparison'
+    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/f0fdf4/166534?text=Salary+Comparison'
   },
   {
     id: 'syllabus-breakdown',
@@ -381,7 +427,7 @@ export const blogs = [
     category: 'Syllabus',
     excerpt: 'Understanding the core subjects you need to focus on for 80% of nursing competitive exams.',
     date: 'Sep 28, 2024',
-    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/fff7ed/c2410c?text=Syllabus+Guide'
+    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/fff7ed/c2410c?text=Syllabus+Guide'
   },
   {
     id: 'rrb-exam-pattern-2026',
@@ -389,7 +435,7 @@ export const blogs = [
     category: 'Exam Updates',
     excerpt: 'What to expect in the upcoming Railway Nursing exams. Analysis of previous trends and new recruitment rules.',
     date: 'Nov 01, 2024',
-    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/faf5ff/6b21a8?text=RRB+2026'
+    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/faf5ff/6b21a8?text=RRB+2026'
   },
   {
     id: 'cho-vs-nursing-officer',
@@ -405,7 +451,7 @@ export const blogs = [
     category: 'Resources',
     excerpt: 'The ultimate booklist recommended by toppers for Anatomy, MSN, and non-nursing subjects.',
     date: 'Nov 12, 2024',
-    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/fef2f2/991b1b?text=Best+Books'
+    image: 'https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/600x400/fef2f2/991b1b?text=Best+Books'
   }
 ];
 
