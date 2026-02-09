@@ -8,7 +8,7 @@ export const Header = () => {
 
   const navLinks = [
     { name: 'Home', path: '/' },
-    { name: 'Exams', path: '/exams' },
+    { name: 'Academy Exams', path: '/exams' },
     { name: 'Courses', path: '/courses' },
     { name: 'PYQs', path: '/pyq' },
     { name: 'Subject Tests', path: '/subject-tests' },
@@ -19,15 +19,17 @@ export const Header = () => {
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-2">
-            <div className="bg-brand-500 text-white p-1.5 rounded-md">
-              <GraduationCap size={24} />
+        <div className="flex items-center justify-between h-20">
+          {/* Logo & Identity */}
+          <Link to="/" className="flex items-center space-x-3 group">
+            <div className="bg-brand-600 text-white p-2 rounded-lg shadow-sm group-hover:bg-brand-700 transition-colors">
+              <GraduationCap size={28} />
             </div>
             <div className="flex flex-col">
-              <span className="font-bold text-xl leading-none text-gray-900">NursingOfficerExams</span>
-              <span className="text-[10px] text-gray-500 font-medium tracking-wider">INDIA'S #1 NURSING EXAM PORTAL</span>
+              <span className="font-bold text-xl leading-none text-gray-900 tracking-tight">NursingOfficerExams</span>
+              <span className="text-[10px] text-brand-700 font-bold uppercase tracking-wide mt-1">
+                Genomic Medical & Nursing Academy – Independent Institution
+              </span>
             </div>
           </Link>
 
@@ -51,7 +53,7 @@ export const Header = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-gray-600"
+            className="lg:hidden p-2 text-gray-600 hover:bg-gray-50 rounded-md"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -82,75 +84,56 @@ export const Header = () => {
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 pt-12 pb-8">
+    <footer className="bg-slate-900 text-slate-300 pt-16 pb-8 border-t-4 border-brand-500">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           <div className="col-span-1 md:col-span-1">
-            <h3 className="text-white font-bold text-lg mb-4">NursingOfficerExams</h3>
-            <p className="text-sm text-gray-400 leading-relaxed">
-              The most trusted free resource for Nursing Officer aspirants in India. 
-              We provide syllabus, notifications, PYQs, and strategy for AIIMS NORCET, RRB, ESIC, and State exams.
+            <div className="flex items-center space-x-2 mb-4 text-white">
+              <GraduationCap size={24} />
+              <span className="font-bold text-lg">NursingOfficerExams</span>
+            </div>
+            <p className="text-sm text-slate-400 leading-relaxed mb-4">
+              Genomic Medical & Nursing Academy is an independent educational institution dedicated to advancing nursing careers through accurate information, syllabus mastery, and genomic healthcare awareness.
             </p>
+            <div className="text-xs text-slate-500 font-medium border-l-2 border-slate-700 pl-3">
+              Independent Institution.<br/>Not affiliated with any coaching brand.
+            </div>
           </div>
           
           <div>
-            <h4 className="text-white font-semibold mb-4">Popular Exams</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/exam/aiims-norcet" className="hover:text-brand-400">AIIMS NORCET</Link></li>
-              <li><Link to="/exam/rrb-staff-nurse" className="hover:text-brand-400">RRB Staff Nurse</Link></li>
-              <li><Link to="/exam/esic-nursing-officer" className="hover:text-brand-400">ESIC Nursing Officer</Link></li>
-              <li><Link to="/exam/dsssb-nursing-officer" className="hover:text-brand-400">DSSSB Nursing Officer</Link></li>
+            <h4 className="text-white font-semibold mb-5 tracking-wide text-sm uppercase">Academy Resources</h4>
+            <ul className="space-y-3 text-sm">
+              <li><Link to="/exam/aiims-norcet" className="hover:text-brand-400 transition-colors">AIIMS NORCET Guide</Link></li>
+              <li><Link to="/exam/rrb-staff-nurse" className="hover:text-brand-400 transition-colors">RRB Staff Nurse Syllabus</Link></li>
+              <li><Link to="/exam/esic-nursing-officer" className="hover:text-brand-400 transition-colors">ESIC Career Path</Link></li>
+              <li><Link to="/exams" className="hover:text-brand-400 transition-colors">All Exam Schedules</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Free Resources</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/pyq" className="hover:text-brand-400">Previous Year Papers</Link></li>
-              <li><Link to="/mock-tests" className="hover:text-brand-400">Free Mock Tests</Link></li>
-              <li><Link to="/subject-tests" className="hover:text-brand-400">Subject Wise Tests</Link></li>
-              <li><Link to="/blog" className="hover:text-brand-400">Exam Strategy Blog</Link></li>
+            <h4 className="text-white font-semibold mb-5 tracking-wide text-sm uppercase">Student Corner</h4>
+            <ul className="space-y-3 text-sm">
+              <li><Link to="/pyq" className="hover:text-brand-400 transition-colors">Previous Year Papers</Link></li>
+              <li><Link to="/mock-tests" className="hover:text-brand-400 transition-colors">Practice Mock Tests</Link></li>
+              <li><Link to="/subject-tests" className="hover:text-brand-400 transition-colors">Subject Wise Modules</Link></li>
+              <li><Link to="/blog" className="hover:text-brand-400 transition-colors">Career Blog</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="text-white font-semibold mb-4">Legal & Contact</h4>
-            <ul className="space-y-2 text-sm">
-              <li><Link to="/about" className="hover:text-brand-400">About Us</Link></li>
-              <li><Link to="/contact" className="hover:text-brand-400">Contact Us</Link></li>
-              <li><Link to="/disclaimer" className="hover:text-brand-400">Disclaimer</Link></li>
-              <li><span className="text-gray-500">+91 6377 6391 69</span></li>
+            <h4 className="text-white font-semibold mb-5 tracking-wide text-sm uppercase">Institution</h4>
+            <ul className="space-y-3 text-sm">
+              <li><Link to="/about" className="hover:text-brand-400 transition-colors">About The Academy</Link></li>
+              <li><Link to="/contact" className="hover:text-brand-400 transition-colors">Contact Administration</Link></li>
+              <li><Link to="/disclaimer" className="hover:text-brand-400 transition-colors">Disclaimer</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-brand-400 transition-colors">Privacy Policy</Link></li>
             </ul>
           </div>
         </div>
         
-        {/* Bottom Bar with NPrep Association */}
-        <div className="border-t border-gray-800 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
-            
-            {/* Copyright & Disclaimer */}
-            <div className="text-xs text-gray-500 text-center md:text-left order-2 md:order-1">
-              <p className="mb-1">&copy; {new Date().getFullYear()} NursingOfficerExams.com. All rights reserved.</p>
-              <p>Not affiliated with any government body.</p>
-            </div>
-
-            {/* NPrep Association Badge */}
-            <div className="flex flex-col items-center md:items-end order-1 md:order-2">
-              <span className="text-[10px] text-gray-500 uppercase tracking-widest mb-1 font-semibold">In Association With</span>
-              <a 
-                href="https://nprep.in" 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="group flex items-center gap-2"
-                aria-label="Visit NPrep Website"
-              >
-                <span className="text-2xl font-bold text-white tracking-tight group-hover:text-brand-400 transition-colors">
-                  NPrep
-                </span>
-              </a>
-            </div>
-
-          </div>
+        <div className="border-t border-slate-800 pt-8 mt-8 text-center text-xs text-slate-500">
+          <p>&copy; {new Date().getFullYear()} Genomic Medical & Nursing Academy. All rights reserved.</p>
+          <p className="mt-2">We are an independent educational portal. Information provided is for career guidance and educational purposes only.</p>
         </div>
       </div>
     </footer>
@@ -159,7 +142,7 @@ export const Footer = () => {
 
 export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="min-h-screen flex flex-col font-sans bg-gray-50 text-gray-900">
+    <div className="min-h-screen flex flex-col font-sans bg-slate-50 text-slate-900">
       <Header />
       <main className="flex-grow">
         {children}
