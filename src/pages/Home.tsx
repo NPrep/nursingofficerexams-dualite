@@ -1,22 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, FileText, CheckSquare, ArrowRight, Download, Laptop } from 'lucide-react';
-import { exams, blogs, resources, comprehensiveExams } from '../data/mockData';
-import { SectionTitle, Card, Badge } from '../components/UIComponents';
+import { BookOpen, CheckSquare, Download, Laptop, ArrowRight } from 'lucide-react';
+import { resources, comprehensiveExams } from '../data/mockData';
+import { SectionTitle, Card } from '../components/UIComponents';
 import { UpcomingExams } from '../components/UpcomingExams';
 import { SEO } from '../components/SEO';
 
 const Home = () => {
-  const centralExams = exams.filter(e => e.category === 'Central');
-  const stateExams = exams.filter(e => e.category === 'State');
-
   // Organization Schema for Home Page
   const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "NursingOfficerExams.com",
     "url": "https://nursingofficerexams.com",
-    "logo": "https://img-wrapper.vercel.app/image?url=https://img-wrapper.vercel.app/image?url=https://placehold.co/512x512/4da3ff/ffffff?text=NOE",
+    "logo": "https://img-wrapper.vercel.app/image?url=https://placehold.co/512x512/4da3ff/ffffff?text=NOE",
     "sameAs": [
       "https://facebook.com/nursingofficerexams",
       "https://twitter.com/nursingexams"
@@ -75,19 +72,19 @@ const Home = () => {
         keywords={['Nursing Officer Exam', 'AIIMS NORCET', 'RRB Staff Nurse', 'Nursing PYQ', 'Staff Nurse Vacancy']}
       />
 
-      {/* Hero Section - Simplified Gateway */}
-      <section className="bg-gradient-to-br from-brand-50 to-white py-12 border-b border-brand-100">
+      {/* Hero Section - Index Style */}
+      <section className="bg-white border-b border-gray-200 py-16">
         <div className="container mx-auto px-4 text-center max-w-4xl">
-          <h1 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-            India's Largest Nursing Exam Gateway
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+            India's Nursing Exam Catalog
           </h1>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-            Direct access to official notifications, syllabus, and free study resources for AIIMS, RRB, and State Nursing exams.
+          <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+            Direct access to official notifications, syllabus, and free study resources for AIIMS, RRB, and State Nursing exams. No clutter, just links.
           </p>
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/exams" className="bg-brand-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-brand-700 transition-colors shadow-sm">
-              Find Your Exam
+              Browse All Exams
             </Link>
             <Link to="/pyq" className="bg-white text-brand-700 border border-brand-200 px-8 py-3 rounded-lg font-bold hover:bg-brand-50 transition-colors shadow-sm">
               Download PYQs
@@ -97,7 +94,7 @@ const Home = () => {
       </section>
 
       <div className="container mx-auto px-4">
-        {/* Quick Resource Blocks - Updated Names & Descriptions */}
+        {/* Quick Resource Blocks - Renamed & Differentiated */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 -mt-8 mb-16 relative z-10">
           <Link to="/exams" className="block group">
             <Card className="h-full flex flex-col items-center text-center p-6 border-t-4 border-t-blue-500 hover:shadow-lg transition-all">
@@ -105,7 +102,7 @@ const Home = () => {
                 <BookOpen size={28} />
               </div>
               <h3 className="font-bold text-lg text-gray-900 group-hover:text-blue-600">All Nursing Exams</h3>
-              <p className="text-sm text-gray-500 mt-2">Official links & notifications for Central & State exams.</p>
+              <p className="text-sm text-gray-500 mt-2">Official links for Central & State exams.</p>
             </Card>
           </Link>
 
@@ -115,7 +112,7 @@ const Home = () => {
                 <Download size={28} />
               </div>
               <h3 className="font-bold text-lg text-gray-900 group-hover:text-purple-600">PYQ Downloads</h3>
-              <p className="text-sm text-gray-500 mt-2">Previous year question papers for NORCET, RRB & CHO.</p>
+              <p className="text-sm text-gray-500 mt-2">Previous year papers for NORCET, RRB & CHO.</p>
             </Card>
           </Link>
 
@@ -125,59 +122,35 @@ const Home = () => {
                 <Laptop size={28} />
               </div>
               <h3 className="font-bold text-lg text-gray-900 group-hover:text-orange-600">Subject Tests</h3>
-              <p className="text-sm text-gray-500 mt-2">Topic-wise practice for Anatomy, MSN, and more.</p>
+              <p className="text-sm text-gray-500 mt-2">Topic-wise practice for Anatomy, MSN.</p>
             </Card>
           </Link>
         </div>
 
-        {/* Upcoming Exams Table - Replaces Generic Text */}
+        {/* Upcoming Exams Table */}
         <UpcomingExams />
 
-        {/* Exam Discovery Grid - Clickable Keywords */}
+        {/* Exam Discovery Grid - Clickable & Short Descriptions */}
         <section className="mb-16">
           <SectionTitle>Explore Exams by Category</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Central Exams */}
-            <div>
-              <h3 className="font-bold text-xl text-gray-800 mb-4 flex items-center gap-2">
-                <span className="w-2 h-6 bg-brand-500 rounded-full"></span>
-                Central Govt Exams
-              </h3>
-              <div className="grid grid-cols-1 gap-3">
-                {centralExams.map(exam => (
-                  <Link key={exam.id} to={`/exam/${exam.id}`} className="group block bg-white border border-gray-200 rounded-lg p-4 hover:border-brand-300 hover:shadow-sm transition-all">
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <h4 className="font-bold text-gray-900 group-hover:text-brand-600">{exam.title}</h4>
-                        <p className="text-xs text-gray-500 mt-1">{exam.vacancies} Vacancies • {exam.salary}</p>
-                      </div>
-                      <ArrowRight size={16} className="text-gray-300 group-hover:text-brand-500" />
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* State Exams */}
-            <div>
-              <h3 className="font-bold text-xl text-gray-800 mb-4 flex items-center gap-2">
-                <span className="w-2 h-6 bg-orange-500 rounded-full"></span>
-                State Govt Exams
-              </h3>
-              <div className="grid grid-cols-1 gap-3">
-                {stateExams.map(exam => (
-                  <Link key={exam.id} to={`/exam/${exam.id}`} className="group block bg-white border border-gray-200 rounded-lg p-4 hover:border-orange-300 hover:shadow-sm transition-all">
-                    <div className="flex justify-between items-center">
-                      <div>
-                        <h4 className="font-bold text-gray-900 group-hover:text-orange-600">{exam.title}</h4>
-                        <p className="text-xs text-gray-500 mt-1">{exam.vacancies} Vacancies • {exam.category}</p>
-                      </div>
-                      <ArrowRight size={16} className="text-gray-300 group-hover:text-orange-500" />
-                    </div>
-                  </Link>
-                ))}
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {comprehensiveExams.flatMap(cat => cat.exams).map((exam, idx) => (
+              <a 
+                key={idx} 
+                href={exam.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block bg-white border border-gray-200 rounded-lg p-5 hover:border-brand-300 hover:shadow-md transition-all h-full flex flex-col"
+              >
+                <div className="flex justify-between items-start mb-2">
+                  <h4 className="font-bold text-gray-900 group-hover:text-brand-600 line-clamp-1">{exam.name}</h4>
+                  <ArrowRight size={16} className="text-gray-300 group-hover:text-brand-500 flex-shrink-0 ml-2" />
+                </div>
+                <p className="text-xs text-gray-500 line-clamp-2 leading-relaxed">
+                  {exam.description}
+                </p>
+              </a>
+            ))}
           </div>
         </section>
 
@@ -189,7 +162,7 @@ const Home = () => {
               <div className="bg-green-100 p-2 rounded text-green-700"><CheckSquare size={24} /></div>
               <h3 className="font-bold text-xl text-green-900">Full Length Mock Tests</h3>
             </div>
-            <p className="text-sm text-gray-600 mb-6">Real exam interface simulations for NORCET, RRB, and ESIC. 100-200 Questions per test.</p>
+            <p className="text-sm text-gray-600 mb-6">Real exam interface simulations for NORCET, RRB, and ESIC. 100-200 Questions.</p>
             <ul className="space-y-3 mb-6">
               {resources.tests.slice(0, 3).map((item, idx) => (
                 <li key={idx} className="flex items-center justify-between bg-white p-3 rounded border border-green-100 shadow-sm">
@@ -209,7 +182,7 @@ const Home = () => {
               <div className="bg-orange-100 p-2 rounded text-orange-700"><Laptop size={24} /></div>
               <h3 className="font-bold text-xl text-orange-900">Subject Wise Practice</h3>
             </div>
-            <p className="text-sm text-gray-600 mb-6">Topic-specific mini tests for Anatomy, MSN, OBG, and Pediatrics. 50 Questions per test.</p>
+            <p className="text-sm text-gray-600 mb-6">Topic-specific mini tests for Anatomy, MSN, OBG. 50 Questions per test.</p>
             <ul className="space-y-3 mb-6">
               {resources.subjectTests.slice(0, 3).map((item, idx) => (
                 <li key={idx} className="flex items-center justify-between bg-white p-3 rounded border border-orange-100 shadow-sm">
@@ -224,7 +197,7 @@ const Home = () => {
           </Card>
         </div>
 
-        {/* Quick Redirects (Bottom) */}
+        {/* Quick Redirects (Bottom) - Simplified */}
         <section className="border-t border-gray-200 pt-12 pb-8">
           <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-6">Quick Redirects</h3>
           <div className="flex flex-wrap gap-3">
