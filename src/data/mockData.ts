@@ -128,44 +128,44 @@ export const exams: Exam[] = [
 // New Data for Upcoming Exams Table
 export const upcomingExams = [
   {
-    name: 'AIIMS NORCET 8',
+    name: 'AIIMS NORCET 10',
     body: 'AIIMS New Delhi',
-    date: 'April 12, 2025',
+    date: 'April 11, 2026',
     link: 'https://www.aiimsexams.ac.in/',
     actionLabel: 'Official Site'
   },
   {
-    name: 'RRB Staff Nurse 2026',
+    name: 'RRB Nursing Superintendent 2026',
     body: 'Railway Recruitment Board',
-    date: 'Late 2026 (Expected)',
+    date: '10-13th March',
     link: 'https://indianrailways.gov.in/',
     actionLabel: 'Official Site'
   },
   {
     name: 'ESIC Nursing Officer',
     body: 'UPSC / ESIC',
-    date: 'July 2025 (Expected)',
+    date: 'To be announced',
     link: 'https://www.esic.gov.in/',
     actionLabel: 'Official Site'
   },
   {
     name: 'DSSSB Nursing Officer',
     body: 'DSSSB Delhi',
-    date: 'Aug 2025',
+    date: 'To be announced',
     link: 'https://dsssb.delhi.gov.in/',
     actionLabel: 'Official Site'
   },
   {
     name: 'UPPSC Staff Nurse',
     body: 'UPPSC',
-    date: 'June 2025',
+    date: 'To be announced',
     link: 'https://uppsc.up.nic.in/',
     actionLabel: 'Official Site'
   },
   {
     name: 'JIPMER Nursing Officer',
     body: 'JIPMER',
-    date: 'May 2025',
+    date: 'To be announced',
     link: 'https://jipmer.edu.in/',
     actionLabel: 'Official Site'
   }
