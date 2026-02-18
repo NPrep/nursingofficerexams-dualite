@@ -137,7 +137,7 @@ export const upcomingExams = [
   {
     name: 'RRB Nursing Superintendent 2026',
     body: 'Railway Recruitment Board',
-    date: '10-13th March',
+    date: '10th - 12th March',
     link: 'https://indianrailways.gov.in/',
     actionLabel: 'Official Site'
   },
