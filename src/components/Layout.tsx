@@ -81,7 +81,7 @@ export const Footer = () => {
   return (
     <footer className="bg-slate-900 text-slate-300 pt-16 pb-8 border-t-4 border-brand-500">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
           <div className="col-span-1 md:col-span-1">
             <div className="flex items-center space-x-2 mb-4 text-white">
               <GraduationCap size={24} />
@@ -119,16 +119,11 @@ export const Footer = () => {
               <li><Link to="/mock-tests" className="hover:text-brand-400 transition-colors">Free Mock Tests</Link></li>
               <li><Link to="/subject-tests" className="hover:text-brand-400 transition-colors">Subject Wise Tests</Link></li>
               <li><Link to="/blog" className="hover:text-brand-400 transition-colors">Preparation Blog</Link></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-white font-semibold mb-5 tracking-wide text-sm uppercase">Legal & Support</h4>
-            <ul className="space-y-3 text-sm">
-              <li><Link to="/about" className="hover:text-brand-400 transition-colors">About Us</Link></li>
-              <li><Link to="/contact" className="hover:text-brand-400 transition-colors">Contact Us</Link></li>
-              <li><Link to="/disclaimer" className="hover:text-brand-400 transition-colors">Disclaimer</Link></li>
-              <li><Link to="/privacy-policy" className="hover:text-brand-400 transition-colors">Privacy Policy</Link></li>
+              <li>
+                <a href="tel:+916377639169" className="hover:text-brand-400 transition-colors">
+                  Contact Us: +91 6377 6391 69
+                </a>
+              </li>
             </ul>
           </div>
         </div>
