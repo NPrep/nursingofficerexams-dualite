@@ -4,7 +4,32 @@
 @tailwind components;
 @tailwind utilities;
 
+
+:root {
+  --primary: #2563eb;
+  --border: #d1d5db;
+}
+
 @layer components {
+  .exam-search-input {
+    width: 100%;
+    max-width: 560px;
+    border-radius: 12px;
+    padding: 14px 20px;
+    border: 2px solid var(--border);
+    background-color: #ffffff;
+    font-size: 1rem;
+    color: #111827;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .exam-search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+  }
+
+
   /* Custom Blog Callouts */
   .blog-callout-summary {
     @apply bg-blue-50 border-l-4 border-blue-500 p-6 my-8 rounded-r-lg;
