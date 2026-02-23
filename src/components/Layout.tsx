@@ -140,7 +140,7 @@ export const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="min-h-screen flex flex-col font-sans bg-slate-50 text-slate-900">
       <Header />
-      <main className="flex-grow">
+      <main id="main-content" className="flex-grow">
         {children}
       </main>
       <Footer />
