@@ -130,7 +130,7 @@ export const BlogDetail = () => {
           <main className="lg:col-span-9 max-w-4xl">
             <div className="bg-white rounded-xl border border-gray-200 p-6 md:p-10 shadow-sm">
               {/* Featured Image */}
-              <img 
+              <img loading="lazy" 
                 src={post.image} 
                 alt={post.title} 
                 className="w-full h-64 md:h-96 object-cover rounded-lg mb-10"
@@ -150,7 +150,7 @@ export const BlogDetail = () => {
                     <details key={idx} className="group bg-gray-50 border border-gray-200 rounded-lg p-5 cursor-pointer">
                       <summary className="font-bold text-gray-900 list-none flex justify-between items-center">
                         {faq.question}
-                        <span className="transition-transform group-open:rotate-180 text-gray-400">▼</span>
+                        <span className="transition-transform group-open:rotate-180 text-gray-400">â–¼</span>
                       </summary>
                       <p className="text-gray-700 mt-4 leading-relaxed">
                         {faq.answer}

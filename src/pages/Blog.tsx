@@ -23,7 +23,7 @@ export const BlogList = () => {
             <article key={idx} className="flex flex-col bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300">
               {/* Image Section */}
               <div className="h-48 bg-gray-100 relative overflow-hidden group">
-                 <img 
+                 <img loading="lazy" 
                    src={blog.image} 
                    alt={blog.title} 
                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
