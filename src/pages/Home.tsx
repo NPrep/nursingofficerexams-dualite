@@ -128,6 +128,15 @@ const Home = () => {
           </div>
         </section>
 
+        <section className="mb-16">
+          <div className="nprep-testimonial-cta">
+            <h2 className="text-3xl font-semibold text-[var(--text-primary)]">Hear from real students</h2>
+            <a className="cta" href="https://nprep.in/blogs?filter=NORCET+Success+Story" target="_blank" rel="noopener noreferrer">
+              Read verified success stories on NPrep
+            </a>
+          </div>
+        </section>
+
       </div>
     </div>
   );
