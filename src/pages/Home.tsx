@@ -7,6 +7,19 @@ import { UpcomingExams } from '../components/UpcomingExams';
 import { SEO } from '../components/SEO';
 
 const Home = () => {
+  const [examQuery, setExamQuery] = React.useState('');
+
+  const examMeta: Record<string, { border: string; stats: string[] }> = {
+    'AIIMS NORCET': { border: 'border-t-blue-500', stats: ['Vacancies: ~8,000', 'Pay Level: 7', 'Frequency: 2x/year'] },
+    'RRB Staff Nurse': { border: 'border-t-red-500', stats: ['Vacancies: ~1,200', 'Pay Level: 7', 'Frequency: Periodic'] },
+    'ESIC Nursing Officer': { border: 'border-t-green-500', stats: ['Vacancies: ~1,900', 'Pay Level: 7', 'Frequency: As notified'] },
+    'DSSSB Nursing Officer': { border: 'border-t-purple-500', stats: ['Vacancies: ~1,500', 'Pay Level: 7', 'Frequency: Annual'] },
+    'UPSC Nursing Officer': { border: 'border-t-amber-500', stats: ['Vacancies: Limited', 'Pay Level: 7/8', 'Frequency: Varies'] },
+    'Military Nursing Service': { border: 'border-t-emerald-500', stats: ['Vacancies: Merit-based', 'Pay Level: Officer Cadre', 'Frequency: Annual'] },
+    'JIPMER Nursing Officer': { border: 'border-t-cyan-500', stats: ['Vacancies: Varies', 'Pay Level: 7', 'Frequency: Annual'] },
+    'PGIMER Nursing Officer': { border: 'border-t-indigo-500', stats: ['Vacancies: Varies', 'Pay Level: 7', 'Frequency: Annual'] },
+  };
+
   // Organization Schema
   const orgSchema = {
     "@context": "https://schema.org",
@@ -14,14 +27,14 @@ const Home = () => {
     "name": "NursingOfficerExams.com",
     "url": "https://nursingofficerexams.com",
     "logo": "https://img-wrapper.vercel.app/image?url=https://placehold.co/512x512/4da3ff/ffffff?text=NOE",
-    "description": "The #1 Authority for Nursing Officer Exams in India."
+    "description": "Complete directory of Nursing Officer exams in India."
   };
 
   return (
     <div className="space-y-16 pb-12">
       <SEO 
         title="Nursing Officer Exams India - Notifications, Syllabus, PYQs & Free Resources"
-        description="The #1 Authority for Nursing Officer Exams in India. Get latest notifications, syllabus, free PYQs, mock tests, and lectures for AIIMS NORCET, RRB, ESIC, and State Staff Nurse exams."
+        description="Complete directory of Nursing Officer exams in India with latest notifications, syllabus, free PYQs, mock tests, and lectures for AIIMS NORCET, RRB, ESIC, and State Staff Nurse exams."
         canonical="/"
         schema={orgSchema}
         keywords={['Nursing Officer Exam', 'AIIMS NORCET', 'RRB Staff Nurse', 'Nursing PYQ']}
@@ -32,11 +45,22 @@ const Home = () => {
         <div className="absolute top-0 left-0 w-full h-2 bg-brand-500"></div>
         <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight leading-tight">
-            India's #1 Index for <span className="text-brand-600">Nursing Officer Exams</span>
+            Complete Directory of <span className="text-brand-600">Nursing Officer Exams in India</span>
           </h1>
           <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
             Your single gateway to Official Notifications, Syllabus, Previous Year Papers, and Free Mock Tests for all Central & State Nursing Exams.
           </p>
+
+          <div className="mb-10 flex justify-center px-2">
+            <input
+              type="search"
+              value={examQuery}
+              onChange={(event) => setExamQuery(event.target.value)}
+              placeholder="Search exams (e.g., NORCET, RRB, ESIC...)"
+              aria-label="Search nursing exams"
+              className="exam-search-input"
+            />
+          </div>
           
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/exams" className="bg-brand-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-brand-700 transition-colors shadow-lg shadow-brand-200/50 flex items-center gap-2">
@@ -56,7 +80,7 @@ const Home = () => {
       <div className="container mx-auto px-4">
         
         {/* Upcoming Exams Table */}
-        <UpcomingExams />
+        <UpcomingExams query={examQuery} />
 
         {/* Quick Resources Grid */}
         <section className="mb-20">
@@ -110,21 +134,32 @@ const Home = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {comprehensiveExams.flatMap(cat => cat.exams).slice(0, 8).map((exam, idx) => (
+            {comprehensiveExams.flatMap(cat => cat.exams).slice(0, 8).map((exam, idx) => {
+              const currentExamMeta = examMeta[exam.name] ?? {
+                border: 'border-t-brand-500',
+                stats: ['Vacancies: Updated in notice', 'Pay Level: As per rules', 'Frequency: Varies'],
+              };
+
+              return (
               <a 
                 key={idx} 
                 href={exam.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block bg-white border border-gray-200 rounded-lg p-4 hover:shadow-md transition-all"
+                className={`group block bg-white border border-gray-200 border-t-4 ${currentExamMeta.border} rounded-lg p-4 hover:shadow-md transition-all`}
               >
-                <h4 className="font-bold text-gray-900 group-hover:text-brand-600 mb-1 truncate">{exam.name}</h4>
-                <p className="text-xs text-gray-500 mb-3 line-clamp-1">{exam.description.substring(0, 60)}...</p>
+                <h4 className="font-bold text-gray-900 group-hover:text-brand-600 mb-1">{exam.name}</h4>
+                <p className="text-xs text-gray-500 mb-3">{exam.description}</p>
+                <div className="space-y-1 mb-3">
+                  {currentExamMeta.stats.map((stat) => (
+                    <p key={stat} className="text-xs text-gray-600">{stat}</p>
+                  ))}
+                </div>
                 <div className="text-xs font-bold text-brand-600 flex items-center">
-                  Visit Official Site <ExternalLink size={10} className="ml-1" />
+                  Learn more <ExternalLink size={10} className="ml-1" />
                 </div>
               </a>
-            ))}
+            )})}
           </div>
         </section>
 

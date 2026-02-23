@@ -92,12 +92,12 @@ export const Footer = () => {
             </p>
             
             {/* NPrep Association Badge */}
-            <div className="bg-slate-800 rounded-lg p-4 border border-slate-700">
-              <p className="text-xs text-slate-500 uppercase tracking-wider font-bold mb-2">In Association with</p>
-              <a href="https://nprep.in" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 group">
-                <div className="bg-white text-brand-600 font-bold px-2 py-1 rounded text-sm">NPrep</div>
-                <span className="text-white font-semibold text-sm group-hover:text-brand-400 transition-colors">Nursing Prep India</span>
-                <ExternalLink size={12} className="text-slate-500 group-hover:text-brand-400" />
+            <div className="rounded-xl p-4 border border-brand-500/40 bg-gradient-to-r from-slate-800 to-slate-700 shadow-lg shadow-brand-900/20">
+              <p className="text-xs text-brand-200 uppercase tracking-[0.18em] font-bold mb-3">In Association with</p>
+              <a href="https://nprep.in" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 group rounded-lg border border-white/20 bg-white/10 px-3 py-2">
+                <div className="bg-white text-brand-700 font-extrabold px-3 py-1.5 rounded-md text-base tracking-wide">NPrep</div>
+                <span className="text-white font-semibold text-sm group-hover:text-brand-300 transition-colors">Nursing Prep India</span>
+                <ExternalLink size={13} className="text-brand-200 group-hover:text-brand-300" />
               </a>
             </div>
           </div>
