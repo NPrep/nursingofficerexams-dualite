@@ -1,177 +1,75 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpen, Download, Laptop, ArrowRight, ExternalLink } from 'lucide-react';
-import { comprehensiveExams } from '../data/mockData';
-import { SectionTitle, Card } from '../components/UIComponents';
-import { UpcomingExams } from '../components/UpcomingExams';
 import { SEO } from '../components/SEO';
+import { Card } from '../components/UIComponents';
 
 const Home = () => {
-  const [examQuery, setExamQuery] = React.useState('');
-
-  const examMeta: Record<string, { border: string; stats: string[] }> = {
-    'AIIMS NORCET': { border: 'border-t-blue-500', stats: ['Vacancies: ~8,000', 'Pay Level: 7', 'Frequency: 2x/year'] },
-    'RRB Staff Nurse': { border: 'border-t-red-500', stats: ['Vacancies: ~1,200', 'Pay Level: 7', 'Frequency: Periodic'] },
-    'ESIC Nursing Officer': { border: 'border-t-green-500', stats: ['Vacancies: ~1,900', 'Pay Level: 7', 'Frequency: As notified'] },
-    'DSSSB Nursing Officer': { border: 'border-t-purple-500', stats: ['Vacancies: ~1,500', 'Pay Level: 7', 'Frequency: Annual'] },
-    'UPSC Nursing Officer': { border: 'border-t-amber-500', stats: ['Vacancies: Limited', 'Pay Level: 7/8', 'Frequency: Varies'] },
-    'Military Nursing Service': { border: 'border-t-emerald-500', stats: ['Vacancies: Merit-based', 'Pay Level: Officer Cadre', 'Frequency: Annual'] },
-    'JIPMER Nursing Officer': { border: 'border-t-cyan-500', stats: ['Vacancies: Varies', 'Pay Level: 7', 'Frequency: Annual'] },
-    'PGIMER Nursing Officer': { border: 'border-t-indigo-500', stats: ['Vacancies: Varies', 'Pay Level: 7', 'Frequency: Annual'] },
-  };
-
-  // Organization Schema
-  const orgSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "NursingOfficerExams.com",
-    "url": "https://nursingofficerexams.com",
-    "logo": "https://img-wrapper.vercel.app/image?url=https://placehold.co/512x512/4da3ff/ffffff?text=NOE",
-    "description": "Complete directory of Nursing Officer exams in India."
-  };
-
   return (
-    <div className="space-y-16 pb-12">
-      <SEO 
-        title="Nursing Officer Exams India - Notifications, Syllabus, PYQs & Free Resources"
-        description="Complete directory of Nursing Officer exams in India with latest notifications, syllabus, free PYQs, mock tests, and lectures for AIIMS NORCET, RRB, ESIC, and State Staff Nurse exams."
+    <div className="pb-10">
+      <SEO
+        title="Government Nursing Officer Exams in India"
+        description="Informational hub for nursing officer exam notifications, eligibility, exam pattern, application process, salary, and recruitment updates."
         canonical="/"
-        schema={orgSchema}
-        keywords={['Nursing Officer Exam', 'AIIMS NORCET', 'RRB Staff Nurse', 'Nursing PYQ']}
+        keywords={[
+          'nursing officer exam',
+          'government nursing officer exams',
+          'AIIMS nursing officer exam',
+          'RRB nursing officer exam',
+          'nursing officer recruitment',
+        ]}
       />
 
-      {/* Hero Section - Gateway Style */}
-      <section className="bg-white border-b border-gray-200 pt-20 pb-24 relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-full h-2 bg-brand-500"></div>
-        <div className="container mx-auto px-4 text-center max-w-4xl relative z-10">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6 tracking-tight leading-tight">
-            Complete Directory of <span className="text-brand-600">Nursing Officer Exams in India</span>
-          </h1>
-          <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
-            Your single gateway to Official Notifications, Syllabus, Previous Year Papers, and Free Mock Tests for all Central & State Nursing Exams.
+      <section className="bg-white border-b border-gray-200 pt-14 pb-14">
+        <div className="container mx-auto px-4 text-center max-w-4xl">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-5">Government Nursing Officer Exams in India</h1>
+          <p className="text-xl text-gray-600 leading-relaxed">
+            Nursing officers are recruited in various government hospitals through national and state level examinations.
           </p>
-
-          <div className="mb-10 flex justify-center px-2">
-            <input
-              type="search"
-              value={examQuery}
-              onChange={(event) => setExamQuery(event.target.value)}
-              placeholder="Search exams (e.g., NORCET, RRB, ESIC...)"
-              aria-label="Search nursing exams"
-              className="exam-search-input"
-            />
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/exams" className="bg-brand-600 text-white px-8 py-4 rounded-lg font-bold hover:bg-brand-700 transition-colors shadow-lg shadow-brand-200/50 flex items-center gap-2">
-              Browse All Exams <ArrowRight size={18} />
-            </Link>
-            <Link to="/pyq" className="bg-white text-gray-700 border border-gray-300 px-8 py-4 rounded-lg font-bold hover:bg-gray-50 transition-colors shadow-sm">
-              Download PYQs
-            </Link>
-          </div>
         </div>
-        
-        {/* Background Pattern */}
-        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-32 h-32 bg-brand-50 rounded-full blur-3xl -z-10"></div>
-        <div className="absolute bottom-0 right-0 w-64 h-64 bg-blue-50 rounded-full blur-3xl -z-10"></div>
       </section>
 
-      <div className="container mx-auto px-4">
-        
-        {/* Upcoming Exams Table */}
-        <UpcomingExams query={examQuery} />
-
-        {/* Quick Resources Grid */}
-        <section className="mb-20">
-          <SectionTitle>Quick Resources</SectionTitle>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Link to="/exams" className="block group">
-              <Card className="h-full p-6 hover:border-brand-400 transition-all">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="bg-brand-100 p-3 rounded-lg text-brand-600">
-                    <BookOpen size={24} />
-                  </div>
-                  <h3 className="font-bold text-lg text-gray-900">All Nursing Exams</h3>
-                </div>
-                <p className="text-sm text-gray-600">Complete directory of Central and State nursing exam notifications.</p>
-              </Card>
-            </Link>
-
-            <Link to="/pyq" className="block group">
-              <Card className="h-full p-6 hover:border-brand-400 transition-all">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="bg-purple-100 p-3 rounded-lg text-purple-600">
-                    <Download size={24} />
-                  </div>
-                  <h3 className="font-bold text-lg text-gray-900">PYQ Downloads</h3>
-                </div>
-                <p className="text-sm text-gray-600">Direct PDF download links for previous year question papers.</p>
-              </Card>
-            </Link>
-
-            <Link to="/subject-tests" className="block group">
-              <Card className="h-full p-6 hover:border-brand-400 transition-all">
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="bg-orange-100 p-3 rounded-lg text-orange-600">
-                    <Laptop size={24} />
-                  </div>
-                  <h3 className="font-bold text-lg text-gray-900">Subject Tests</h3>
-                </div>
-                <p className="text-sm text-gray-600">Topic-wise practice tests for Anatomy, MSN, and more.</p>
-              </Card>
-            </Link>
+      <div className="container mx-auto px-4 py-10 grid gap-8">
+        <section className="bg-white rounded-xl border border-gray-200 p-6">
+          <h2 className="text-2xl font-bold mb-4">Major Nursing Officer Exams</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {[
+              ['AIIMS NORCET', '/aiims-norcet-exam'],
+              ['RRB Nursing Superintendent', '/rrb-nursing-superintendent-exam'],
+              ['ESIC Nursing Officer', '/esic-nursing-officer-exam'],
+              ['NHM Nursing Officer', '/nhm-nursing-officer-recruitment'],
+            ].map(([name, path]) => (
+              <Link key={path} to={path}><Card className="hover:border-brand-300"><h3 className="font-semibold text-brand-700">{name}</h3></Card></Link>
+            ))}
           </div>
         </section>
 
-        {/* Exam Catalog / Index */}
-        <section className="mb-16">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-2xl font-bold text-gray-900">Explore Exams</h2>
-            <Link to="/exams" className="text-brand-600 font-semibold hover:underline flex items-center gap-1">
-              View All <ArrowRight size={16} />
-            </Link>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {comprehensiveExams.flatMap(cat => cat.exams).slice(0, 8).map((exam, idx) => {
-              const currentExamMeta = examMeta[exam.name] ?? {
-                border: 'border-t-brand-500',
-                stats: ['Vacancies: Updated in notice', 'Pay Level: As per rules', 'Frequency: Varies'],
-              };
-
-              return (
-              <a 
-                key={idx} 
-                href={exam.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`group block bg-white border border-gray-200 border-t-4 ${currentExamMeta.border} rounded-lg p-4 hover:shadow-md transition-all`}
-              >
-                <h4 className="font-bold text-gray-900 group-hover:text-brand-600 mb-1">{exam.name}</h4>
-                <p className="text-xs text-gray-500 mb-3">{exam.description}</p>
-                <div className="space-y-1 mb-3">
-                  {currentExamMeta.stats.map((stat) => (
-                    <p key={stat} className="text-xs text-gray-600">{stat}</p>
-                  ))}
-                </div>
-                <div className="text-xs font-bold text-brand-600 flex items-center">
-                  Learn more <ExternalLink size={10} className="ml-1" />
-                </div>
-              </a>
-            )})}
-          </div>
+        <section className="bg-white rounded-xl border border-gray-200 p-6">
+          <h2 className="text-2xl font-bold mb-4">Eligibility for Nursing Officer</h2>
+          <p className="text-gray-700 mb-4">Review common qualifications, registration requirements, and age criteria.</p>
+          <Link to="/nursing-officer-eligibility" className="text-brand-600 font-semibold hover:underline">View Eligibility Guide</Link>
         </section>
 
-        <section className="mb-16">
-          <div className="nprep-testimonial-cta">
-            <h2 className="text-3xl font-semibold text-[var(--text-primary)]">Hear from real students</h2>
-            <a className="cta" href="https://nprep.in/blogs?filter=NORCET+Success+Story" target="_blank" rel="noopener noreferrer">
-              Read verified success stories on NPrep
-            </a>
-          </div>
+        <section className="bg-white rounded-xl border border-gray-200 p-6">
+          <h2 className="text-2xl font-bold mb-4">Selection Process</h2>
+          <p className="text-gray-700">Most recruitments include written/computer-based assessment and document verification as per official notifications.</p>
         </section>
 
+        <section className="bg-white rounded-xl border border-gray-200 p-6">
+          <h2 className="text-2xl font-bold mb-4">Salary Overview</h2>
+          <p className="text-gray-700 mb-4">Government nursing officer pay typically starts from Level-7 equivalent ranges with allowances.</p>
+          <Link to="/nursing-officer-salary" className="text-brand-600 font-semibold hover:underline">Read Salary Details</Link>
+        </section>
+
+        <section className="bg-white rounded-xl border border-gray-200 p-6">
+          <h2 className="text-2xl font-bold mb-4">Latest Recruitment Updates</h2>
+          <ul className="list-disc pl-6 text-gray-700 space-y-1">
+            <li>AIIMS NORCET</li>
+            <li>Railway Nursing Superintendent</li>
+            <li>ESIC Nursing Officer</li>
+            <li>NHM Nursing Officer</li>
+          </ul>
+          <p className="text-gray-700 mt-3">These are the major government recruitments for nursing officers in India.</p>
+        </section>
       </div>
     </div>
   );
