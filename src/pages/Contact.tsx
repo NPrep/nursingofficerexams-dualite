@@ -59,7 +59,10 @@ const Contact = () => {
             </div>
             <h2 className="text-lg font-bold text-gray-900 mb-2">Call / WhatsApp</h2>
             <p className="text-gray-600 mb-4 text-sm">Mon-Sat, 10 AM - 6 PM</p>
-            <a href="tel:+916377639169" className="text-purple-600 font-semibold hover:underline text-sm">
+            <a
+              href="tel:+916377639169"
+              className="inline-flex items-center rounded-full bg-purple-100 px-3 py-1.5 text-sm font-semibold text-purple-700 ring-1 ring-purple-200 transition-colors hover:bg-purple-200"
+            >
               +91 6377 6391 69
             </a>
           </Card>
